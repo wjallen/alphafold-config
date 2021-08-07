@@ -1,0 +1,17 @@
+--preset=full_dbs
+--fasta_paths=/scratch1/03439/wallen/alphafold/test/seq1.fasta
+--output_dir=/scratch1/03439/wallen/alphafold/test/output
+--model_names=model_1,model_2,model_3,model_4,model_5
+--data_dir=/scratch1/03439/wallen/alphafold/data
+--uniref90_database_path=/scratch1/03439/wallen/alphafold/data/uniref90/uniref90.fasta
+--mgnify_database_path=/scratch1/03439/wallen/alphafold/data/mgnify/mgy_clusters_2018_12.fa
+--uniclust30_database_path=/scratch1/03439/wallen/alphafold/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08
+--bfd_database_path=/scratch1/03439/wallen/alphafold/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt
+--pdb70_database_path=/scratch1/03439/wallen/alphafold/data/pdb70/pdb70
+--template_mmcif_dir=/scratch1/03439/wallen/alphafold/data/pdb_mmcif/mmcif_files
+--max_template_date=2020-05-14
+--obsolete_pdbs_path=/scratch1/03439/wallen/alphafold/data/pdb_mmcif/obsolete.dat
+--hhblits_binary_path=/scratch1/03439/wallen/alphafold/miniconda/envs/alphafold/bin/hhblits
+--hhsearch_binary_path=/scratch1/03439/wallen/alphafold/miniconda/envs/alphafold/bin/hhsearch
+--jackhmmer_binary_path=/scratch1/03439/wallen/alphafold/miniconda/envs/alphafold/bin/jackhmmer
+--kalign_binary_path=/scratch1/03439/wallen/alphafold/miniconda/envs/alphafold/bin/kalign

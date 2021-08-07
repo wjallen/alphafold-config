@@ -1,0 +1,62 @@
+### Notes on installing AlphaFold2, dependencies, and downloading data sets
+
+
+
+## Environment
+
+mkdir -p /scratch1/03439/wallen/alphafold
+
+module restore
+module load intel/19.1.1
+module load cuda/11.0 cudnn/8.0.5 nccl/2.8.3
+module unload python3
+
+# module list
+#
+# Currently Loaded Modules:
+#  1) git/2.24.1      3) cmake/3.20.3   5) hwloc/1.11.12   7) TACC           9) impi/19.0.9      11) cudnn/8.0.5 (g)
+#  2) autotools/1.2   4) pmix/3.1.4     6) xalt/2.10.13    8) intel/19.1.1  10) cuda/11.0   (g)  12) nccl/2.8.3  (g)
+
+
+
+## Download alphafold, download data:
+
+cd /scratch1/03439/wallen/alphafold
+wget https://github.com/deepmind/alphafold/archive/refs/tags/v2.0.0.tar.gz
+tar -xvzf v2.0.0.tar.gz
+mkdir data/
+bash alphafold-2.0.0/scripts/download_all_data.sh /scratch1/03439/wallen/alphafold/data
+
+
+
+## Install AlphaFold (with miniconda) and some dependencies:
+
+cd /scratch1/03439/wallen/alphafold
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash ./Miniconda3-latest-Linux-x86_64.sh -p /scratch1/03439/wallen/alphafold/miniconda
+conda create --name alphafold
+conda activate alphafold
+conda install -y -c conda-forge aria2 openmm=7.5.1 cudatoolkit=11.1.1 pdbfixer pip python=3.7
+conda install -y -c bioconda hmmer kalign3 hhsuite=3.3.0
+pip3 install -r /scratch1/03439/wallen/alphafold/alphafold-2.0.0/requirements.txt
+pip3 install --upgrade jax jaxlib==0.1.69+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html
+cd $CONDA_PREFIX/lib/python3.7/site-packages
+patch -p0 < /scratch1/03439/wallen/alphafold/alphafold-2.0.0/docker/openmm.patch
+cd /scratch1/03439/wallen/alphafold/alphafold-2.0.0/alphafold/common/
+wget https://git.scicore.unibas.ch/schwede/openstructure/-/raw/7102c63615b64735c4941278d92b554ec94415f8/modules/mol/alg/src/stereo_chemical_props.txt
+cd /scratch1/03439/wallen/alphafold/alphafold-2.0.0
+pip3 install .
+sed -i '1s/^/#!\/usr\/bin\/env python3\n/' run_alphafold.py
+chmod +x run_alphafold.py
+cd /scratch1/03439/wallen/alphafold && rm -rf Miniconda3-latest-Linux-x86_64.sh v2.0.0.tar.gz
+
+
+
+## Test
+
+cd /scratch1/03439/wallen/alphafold/alphafold-2.0.0
+pip3 install mock
+python3 run_alphafold_test.py
+
+
+
