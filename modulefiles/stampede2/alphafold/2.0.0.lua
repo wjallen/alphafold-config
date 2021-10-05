@@ -14,7 +14,7 @@ After loading this module, run AlphaFold using the following command:
 
 A sample.ff is provided in:
 
-  /scratch1/03439/wallen/alphafold/test
+  /scratch/06634/eho/alphafold
 
 That file should be customized to point to your own input data (--fasta-paths)
 and desired output path (--output-dir).
@@ -38,10 +38,10 @@ try_load("cuda/11.0")
 try_load("cudnn/8.0.5")
 try_load("nccl/2.8.3")
 family("python")
- 
-prepend_path("PATH", "/scratch1/03439/wallen/alphafold/alphafold-2.0.0")
 
-local root_dir = "/scratch1/03439/wallen/alphafold"
+prepend_path("PATH", "/scratch/06634/eho/alphafold")
+
+local root_dir = "/scratch/06634/eho/alphafold"
 local funcs = "conda __conda_activate __conda_hashr __conda_reactivate __add_sys_prefix_to_path"
 
 -- Specify where system and user environments should be created
