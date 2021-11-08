@@ -1,4 +1,4 @@
---preset=full_dbs
+--db_preset=full_dbs
 --bfd_database_path=/work/projects/tacc/bio/alphafold/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt
 --data_dir=/work/projects/tacc/bio/alphafold/data
 --uniref90_database_path=/work/projects/tacc/bio/alphafold/data/uniref90/uniref90.fasta
