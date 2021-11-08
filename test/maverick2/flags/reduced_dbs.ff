@@ -1,4 +1,4 @@
---db_preset=reduced_dbs
+--preset=reduced_dbs
 --small_bfd_database_path=/work/projects/tacc/bio/alphafold/data/small_bfd/bfd-first_non_consensus_sequences.fasta
 --data_dir=/work/projects/tacc/bio/alphafold/data
 --uniref90_database_path=/work/projects/tacc/bio/alphafold/data/uniref90/uniref90.fasta
