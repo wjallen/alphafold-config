@@ -1,5 +1,5 @@
 local help_message = [[
-This is a module file for the container tacc/alphafold:2.0.0, which exposes the
+This is a module file for the container tacc/alphafold:2.2.0, which exposes the
 following program:
 
  - run_alphafold.sh
@@ -18,13 +18,13 @@ tools it contains, please find supporting documentation at:
 help(help_message,"\\n")
 
 whatis("Name: alphafold")
-whatis("Version: 2.0.0")
+whatis("Version: 2.2.0")
 whatis("Category: Unknown")
 whatis("Keywords: Container")
 whatis("Description: The alphafold package")
 whatis("URL: https://github.com/deepmind/alphafold")
 
-set_shell_function("run_alphafold.sh", "singularity exec /scratch/projects/tacc/bio/alphafold/images/alphafold_2.0.0.sif /app/run_alphafold.sh $@", "singularity exec /scratch/projects/tacc/bio/alphafold/images/alphafold_2.0.0.sif /app/run_alphafold.sh $*")
+set_shell_function("run_alphafold.sh", "singularity exec /scratch/projects/tacc/bio/alphafold/images/alphafold_2.2.0.sif /app/run_alphafold.sh $@", "singularity exec /scratch/projects/tacc/bio/alphafold/images/alphafold_2.2.0.sif /app/run_alphafold.sh $*")
 
 setenv("AF2_HOME", "/scratch/projects/tacc/bio/alphafold")
 always_load("tacc-singularity")
