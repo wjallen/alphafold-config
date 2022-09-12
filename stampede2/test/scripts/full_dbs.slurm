@@ -27,7 +27,7 @@ run_alphafold.sh --flagfile=$AF2_HOME/test/flags/full_dbs.ff \
                  --fasta_paths=$AF2_HOME/test/input/sample.fasta \
                  --output_dir=$SCRATCH/af2_full \
                  --model_preset=monomer \
-                 --nouse_gpu_relax=False
+                 --use_gpu_relax=False
 
 echo -n "ending at: "
 date
