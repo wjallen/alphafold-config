@@ -23,7 +23,6 @@ mkdir -p $SCRATCH/af2_launcher_job
 
 # Launcher specifics (use launcher_gpu for GPUs)
 module load launcher_gpu
-export LAUNCHER_WORKDIR=$AF2_HOME/examples/launcher
 export LAUNCHER_JOB_FILE=jobfile
 
 # Run AlphaFold with Launcher
