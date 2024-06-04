@@ -1,4 +1,5 @@
 #!/bin/bash
+# full_dbs_launcher.slurm
 # -----------------------------------------------------------------
 #SBATCH -J af2_launcher_job            # Job name
 #SBATCH -o af2_launcher_job.%j.out     # Name of stdout output file
@@ -15,6 +16,11 @@ module unload xalt
 module use /scratch2/projects/bio/alphafold/modulefiles
 module load alphafold/2.3.2-ctr
 
+echo -n "starting at: "
+date
+
+mkdir -p $SCRATCH/af2_launcher_job
+
 # Launcher specifics (use launcher_gpu for GPUs)
 module load launcher_gpu
 export LAUNCHER_JOB_FILE=jobfile
@@ -22,3 +28,5 @@ export LAUNCHER_JOB_FILE=jobfile
 # Run AlphaFold with Launcher
 ${LAUNCHER_DIR}/paramrun
 
+echo -n "ending at: "
+date

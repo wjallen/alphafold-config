@@ -1,6 +1,6 @@
 local help_message = [[
 This is a module file for the container tacc/alphafold:2.3.2, which exposes the
-following programs:
+following program:
 
  - run_alphafold.sh
 
@@ -24,9 +24,8 @@ whatis("Keywords: Container")
 whatis("Description: The alphafold package")
 whatis("URL: https://github.com/deepmind/alphafold")
 
-set_shell_function("run_alphafold.sh", "apptainer exec --nv /scratch2/projects/bio/alphafold/2.3.2/images/alphafold_2.3.2.sif /app/run_alphafold.sh $@", "apptainer exec --nv /scratch2/projects/bio/alphafold/2.3.2/images/alphafold_2.3.2.sif /app/run_alphafold.sh $*")
+set_shell_function("run_alphafold.sh", "apptainer exec --nv /scratch/tacc/apps/bio/alphafold/2.3.2/images/alphafold_2.3.2.sif /app/run_alphafold.sh $@", "apptainer exec --nv /scratch/tacc/apps/bio/alphafold/2.3.2/images/alphafold_2.3.2.sif /app/run_alphafold.sh $*")
 
-setenv("AF2_HOME", "/scratch2/projects/bio/alphafold/2.3.2")
+setenv("AF2_HOME", "/scratch/tacc/apps/bio/alphafold/2.3.2")
 always_load("tacc-apptainer")
-try_load("cuda/11.3")
-
+try_load("cuda/11.4")
