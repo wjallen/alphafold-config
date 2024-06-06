@@ -4,8 +4,8 @@
 #SBATCH -J af2_full                                 # Job name
 #SBATCH -o af2_full.%j.out                          # Name of stdout output file
 #SBATCH -e af2_full.%j.err                          # Name of stderr error file
-#SBATCH -p pvc                                      # Queue (partition) name
-#SBATCH -N 1 # Only request one node on pvc Queue   # Total # of nodes 
+#SBATCH -p skx                                      # Queue (partition) name
+#SBATCH -N 1                                        # Total # of nodes 
 #SBATCH -n 1                                        # Total # of mpi tasks 
 #SBATCH -t 12:00:00                                 # Run time (hh:mm:ss)
 #SBATCH -A my-project                               # Project/Allocation name 
@@ -28,7 +28,7 @@ run_alphafold.sh --flagfile=$AF2_HOME/examples/flags/full_dbs.ff \
                  --output_dir=$SCRATCH/af2_full \
                  --model_preset=monomer \
                  --max_template_date=2020-05-14 \
-                 --use_gpu_relax=True
+                 --use_gpu_relax=False
 
 echo -n "ending at: "
 date
