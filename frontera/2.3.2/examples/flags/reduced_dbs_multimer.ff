@@ -9,5 +9,5 @@
 --uniprot_database_path=/scratch2/projects/bio/alphafold/2.3.2/data/uniprot/uniprot.fasta
 --hhblits_binary_path=/usr/bin/hhblits
 --hhsearch_binary_path=/usr/bin/hhsearch
---jackhmmer_binary_path=/usr/bin/jackhmmer
+#--jackhmmer_binary_path=/usr/bin/jackhmmer
 --kalign_binary_path=/usr/bin/kalign
